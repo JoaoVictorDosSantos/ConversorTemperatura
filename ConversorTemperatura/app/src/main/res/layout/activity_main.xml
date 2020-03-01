@@ -27,8 +27,16 @@
             android:id="@+id/button_paraCelsius"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Converter para Celsius"
-            android:layout_weight=".5"
+            android:layout_weight="1"
+            android:text="Celsius"
+        />
+
+        <Button
+            android:id="@+id/button_paraFahrenheit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fahrenheit"
         />
     </LinearLayout>
 

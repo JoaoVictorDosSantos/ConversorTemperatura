@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonParaCelsius;
+    private Button buttonParaFahrenheit;
     private EditText editTextTemperatura;
     private TextView textViewSaida;
 
@@ -22,9 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editTextTemperatura = findViewById(R.id.editText_temperatura);
         buttonParaCelsius = findViewById(R.id.button_paraCelsius);
+        buttonParaFahrenheit = findViewById(R.id.button_paraFahrenheit);
         textViewSaida = findViewById(R.id.textview_saida);
 
         buttonParaCelsius.setOnClickListener(this);
+        buttonParaFahrenheit.setOnClickListener(this);
 
     }
 
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == buttonParaCelsius){
             converterCelsius();
+        }
+
+        if(v == buttonParaFahrenheit){
+            converterFahrenheit();
         }
     }
 
@@ -45,6 +52,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         textViewSaida.setText(String.format("%.2f ºC ", ((valor - 32)/1.8)));
+    }
+
+    private void converterFahrenheit() throws NumberFormatException{
+        double valor;
+        try{
+            valor = getTemperatura();
+        }catch (NumberFormatException e){
+            valor = 0;
+            Toast.makeText(this, "Entrada inválida", Toast.LENGTH_SHORT).show();
+        }
+
+        textViewSaida.setText(String.format("%.2f ºF ", ((valor * 1.8) + 32)));
     }
 
     private double getTemperatura(){
