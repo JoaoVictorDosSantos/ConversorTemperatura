@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Entrada inválida", Toast.LENGTH_SHORT).show();
         }
 
-        textViewSaida.setText(String.format("%.2f Cº ", ((valor - 32)/1.8)));
+        textViewSaida.setText(String.format("%.2f ºC ", ((valor - 32)/1.8)));
     }
 
     private double getTemperatura(){
